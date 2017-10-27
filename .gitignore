@@ -6,6 +6,12 @@
 *.lo
 *.o
 *.obj
+*.class
+*.java~
+*.l~
+*.y~
+*.py~
+
 
 # Precompiled Headers
 *.gch
