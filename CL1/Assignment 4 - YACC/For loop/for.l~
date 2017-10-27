@@ -1,0 +1,41 @@
+%{
+#include "y.tab.h"
+#include<stdio.h>
+%}
+
+%%
+[\t ]+ {printf("%s",yytext);}
+"for" { printf("%s",yytext); return FOR;}
+"int" { printf("%s",yytext); return INT;}
+"break" { printf("%s",yytext); return BREAK;}
+[a-zA-Z]+ { printf("%s",yytext); return VAR;}
+[0-9]+ { printf("%s",yytext); return NUM;}
+[<>=/+-/*//]+ { printf("%s",yytext); return OPR;}
+. { printf("%s",yytext); return yytext[0];}
+\n return 0;
+%%
+
+int yywrap()
+{
+  return 1;
+}
+
+
+void yyerror(const char *s)
+{
+  printf("\n\t%s",s);
+  exit(0);
+}
+
+bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/For loop$ lex for.lbhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/For loop$ yacc -d for.ybhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/For loop$ cc lex.yy.c y.tab.c -ll -ly
+bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/For loop$ ./a.out
+for(int i=0;i<10;i++)
+for(int i=0;i<10;i++)
+	Valid For Loop Statement
+bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/For loop$ ./a.out
+for(int i=n;i<n+50;i++)
+for(int i=n;i<n
+	syntax errorbhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/For loop$ ./a.out
+for(int i=0;i>10 i++)     
+for(int i=0;i>10 i
+	syntax errorbhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/For loop$ 

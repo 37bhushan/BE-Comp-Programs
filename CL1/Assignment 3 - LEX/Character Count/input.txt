@@ -1,0 +1,14 @@
+hgkhgknb212135jbkj @@
+
+
+
+
+bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-LEX/Character Count$ lex count.lbhushan@ubuntu:~/Desktop/CL1 B58/Assignment-LEX/Character Count$ cc lex.yy.c -ll -ly
+bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-LEX/Character Count$ ./a.outWord Count - 2 
+Character Count - 12 
+Special Symbol Count - 2 
+Space Count - 1 
+Digit Count - 6 
+Line Count - 1 
+bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-LEX/Character Count$ 
+

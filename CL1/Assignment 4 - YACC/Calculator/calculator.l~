@@ -1,0 +1,30 @@
+%{
+#include "y.tab.h"
+%}
+
+%%
+
+[0-9]+  {
+            yylval.dval=atoi(yytext);
+            return num;
+        }
+.	{ return yytext[0];}
+\n return 0;
+
+%%
+
+int yywrap(void)
+{
+return 1;
+}
+
+int main()
+{
+	yyparse();	
+	return 0;
+}
+bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/Calculator$ lex calculator.l
+bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/Calculator$ yacc -d calculator.y
+bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/Calculator$ cc lex.yy.c y.tab.c -ll -ly
+3+5/2-2
+3bhushan@ubuntu:~/Desktop/CL1 B58/Assignment-YACC/Calculator$ 

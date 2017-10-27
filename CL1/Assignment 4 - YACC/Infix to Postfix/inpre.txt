@@ -1,0 +1,30 @@
+OUTPUT:
+
+	samarpit@prjlab-HP-dx2480-MT-KL969AV:~/Desktop$ lex inpre.l
+	samarpit@prjlab-HP-dx2480-MT-KL969AV:~/Desktop$ yacc -d inpre.y
+	samarpit@prjlab-HP-dx2480-MT-KL969AV:~/Desktop$ gcc lex.yy.c y.tab.c -ll -ly
+	y.tab.c: In function ‘yyparse’:
+	y.tab.c:1124:16: warning: implicit declaration of function ‘yylex’ [-Wimplicit-function-declaration]
+	       yychar = yylex ();
+		        ^
+	y.tab.c:1283:7: warning: implicit declaration of function ‘yyerror’ [-Wimplicit-function-declaration]
+	       yyerror (YY_("syntax error"));
+	       ^
+	inpre.y: At top level:
+	inpre.y:24:6: warning: conflicting types for ‘yyerror’
+	 void yyerror (char *s)
+	      ^
+	y.tab.c:1283:7: note: previous implicit declaration of ‘yyerror’ was here
+	       yyerror (YY_("syntax error"));
+	       ^
+	samarpit@prjlab-HP-dx2480-MT-KL969AV:~/Desktop$ ./a.out
+	2+3
+	23+
+	samarpit@prjlab-HP-dx2480-MT-KL969AV:~/Desktop$ ./a.out
+	2+3*5
+	235*+
+	samarpit@prjlab-HP-dx2480-MT-KL969AV:~/Desktop$ ./a.out
+	2+4/5*6-1
+	245/6*+1-
+	samarpit@prjlab-HP-dx2480-MT-KL969AV:~/Desktop$ 
+

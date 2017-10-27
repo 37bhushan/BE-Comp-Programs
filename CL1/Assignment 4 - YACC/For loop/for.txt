@@ -1,0 +1,24 @@
+for(i=1;i<2;i++){d=4-a;}
+OUTPUT
+
+	sam@ubuntu:~/Desktop$ lex for.l
+	sam@ubuntu:~/Desktop$ yacc -d for.y
+	sam@ubuntu:~/Desktop$ gcc lex.yy.c y.tab.c -ll -ly
+	y.tab.c: In function ‘yyparse’:
+	y.tab.c:1150:16: warning: implicit declaration of function ‘yylex’ [-Wimplicit-function-declaration]
+	       yychar = yylex ();
+		        ^~~~~
+	y.tab.c:1279:7: warning: implicit declaration of function ‘yyerror’ [-Wimplicit-function-declaration]
+	       yyerror (YY_("syntax error"));
+	       ^~~~~~~
+	sam@ubuntu:~/Desktop$ ./a.out
+	for(i=1;i<2;i++){d=a-b; a=d-b;}     
+	for(i=1;i<2;i++){d=a-b; a=d-b;}
+		Valid For Loop Statements!!!
+	sam@ubuntu:~/Desktop$
+	sam@ubuntu:~/Desktop$ ./a.out
+	for(i=1;i<2;i++){d=4-a;}
+	for(i=1;i<2;i++){d=4-
+		syntax error
+	sam@ubuntu:~/Desktop$
+

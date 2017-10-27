@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+
+class tsp
+{
+	public :
+		int cost[10][10];
+		int isVisited[10];
+		int adjecent[10];
+		int numCities;
+		int cost, tempCost, totalCost;
+		tsp()
+		{
+			GetInput();
+			for(int i = 0; i<10; i++)
+			{
+				isVisited[i] = 0;
+				adjecent[i] = 0;
+			}	
+
+
+		}
+
+	void GetInput()
+	{
+		cout<<"Enter Number of Cities -"<<endl;
+		cin>>numCities;
+
+		for(int i = 0; i < numCities; i++)
+		{
+			for(int j = 0; j < numCities; j++)
+			{
+				if(i==j)
+				{
+					cost[i][j] == 999;
+				}
+				else
+				{
+					cout<<"Enter distance between "<<i<<" and "<<j<<" "<<endl;
+					cin>>cost[i][j];
+				}			
+			}
+		}
+	}
+
+	void PathFinding()
+	{
+			
+	}
+
+
+
+
+	
+
+};
+
+
+
+int main()
+{
+
+
+return 0;
+}
